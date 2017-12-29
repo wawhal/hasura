@@ -21,7 +21,7 @@ RUN chmod a+x /usr/src/scripts/runserver.sh
 # Copy the source
 COPY app/src /usr/src/app
 
-WORKDIR /usr/src/app/helloworld
+WORKDIR /usr/src/app/todoList
 
 # App port number is configured through the gunicorn config file
 ENTRYPOINT ["/usr/src/scripts/runserver.sh"]

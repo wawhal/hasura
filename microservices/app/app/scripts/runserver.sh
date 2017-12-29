@@ -11,4 +11,4 @@ python3 manage.py migrate
 
 # DO NOT ADD ANY COMMANDS BELOW THIS LINE
 # Now run the gunicorn server
-gunicorn --config /conf/gunicorn_config.py helloworld.wsgi
+gunicorn --config /conf/gunicorn_config.py todoList.wsgi
