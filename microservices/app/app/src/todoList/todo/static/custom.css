@@ -1,0 +1,27 @@
+      .white {color: #FFFFFF;}
+      .background-color{background-color: #122345;}
+      .margin-right-10{margin-right:10%;}
+      .margin-left-10{margin-left: 10%;}
+      .notepad{
+      	background-color:#FFFFFF;
+      	height:100%
+      }
+      body{  font-family: monospace;}
+      .box{
+      	margin: 30px;
+      	background-color:#67D2C2 ;
+      }   
+      h3{margin-left: 10%;color:#67D2C2;}
+      #addTask{
+        margin-top: 20px;
+      	width:80%;
+      	border: 2px solid #67D2C2;
+      	padding: 10px;
+      }
+      ul{
+      	list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .checkboxform{display: inline-block;}
+      #doneList{text-decoration:line-through;}

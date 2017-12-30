@@ -1,0 +1,61 @@
+<html>
+  <head>
+  	<title>To Do List</title>  
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/custom.css">
+  </head>
+  <body class="background-color">
+  		<div class="container-fluid box">
+  			<div class="row">
+  				<div class="col-xs-hidden col-sm-3"></div>
+  				<div class="col-xs-12 col-sm-6">
+  					<img src="../static/spiral.jpg" class="img-responsive" style="width:100%" alt="Image">
+  					<div class="notepad">		
+  						<form action="{% url 'task' %}" method="POST">
+  						{% csrf_token %}
+  							<input class="margin-left-10" type="text" name="taskName" id="addTask" placeholder="Type and hit enter to add">
+  							<input type="submit" name="submit">
+  						</form>
+  						<h3>To Do</h3>
+              {% if toDoTasks.count == 0 %}
+                <span class="margin-left-10">No items. Why not add one above.</span>
+              {% endif %}
+  						<ul id="undoneList">
+						    {% for task in toDoTasks %}
+						    <li>
+                  <div class="task margin-left-10 margin-right-10">
+  						    	<form action="done/{{task.taskid}}" class="checkboxform">
+  						    		<input style="display:inline-block;" type="checkbox" onchange="$(this).closest('form').submit();">
+  						    	</form>
+  						    	<span value="{{task.taskid}}" class="item">{{task.taskName}}</span>
+  						    	<span value="{{task.taskid}}" class="itemdelete pull-right"><img src="../static/cross.gif"></span>
+                  </div>
+						    </li>
+						    {% endfor %}
+						</ul>
+  						<h3>Done</h3>
+  						<ul id="doneList">
+						    {% for task in doneTasks %}
+                <li>
+                  <div class="task margin-left-10 margin-right-10">
+                    <form action="undone/{{task.taskid}}" class="checkboxform">
+                      <input style="display:inline-block;" type="checkbox" onchange="$(this).closest('form').submit();">
+                    </form>
+                    <span value="{{task.taskid}}" class="item">{{task.taskName}}</span>
+                    <span class="itemdelete pull-right" value="{{task.taskid}}"><img src="../static/cross.gif"></span>
+                  </div>
+                </li>
+						    {% endfor %}
+						</ul>
+  					</div>
+  				</div>
+  				<div class="col-xs-hidden col-sm-3"></div>
+  			</div>
+  		</div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script src="../static/custom.js"></script>
+  </body>
+</html>
