@@ -1,10 +1,10 @@
 <html>
   <head>
-  	<title>To Do List</title>  
+  	<title>To Do List</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../static/custom.css">
+    <link rel="stylesheet" href="/static/custom.css">
   </head>
   <body class="background-color">
   		<div class="container-fluid box">
@@ -12,7 +12,7 @@
   				<div class="col-xs-hidden col-sm-3"></div>
   				<div class="col-xs-12 col-sm-6">
   					<img src="../static/spiral.jpg" class="img-responsive" style="width:100%" alt="Image">
-  					<div class="notepad">		
+  					<div class="notepad">
   						<form action="{% url 'task' %}" method="POST">
   						{% csrf_token %}
   							<input class="margin-left-10" type="text" name="taskName" id="addTask" placeholder="Type and hit enter to add">
